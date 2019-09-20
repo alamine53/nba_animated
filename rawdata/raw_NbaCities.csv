@@ -1,0 +1,31 @@
+﻿long,lat,names,stad,team,east
+-84.39638889,33.75722222,ATL,State Farm Arena,Atlanta Hawks,1
+-71.06222778,42.36630278,BOS,TD Garden,Boston Celtics,1
+-73.974689,40.68265,BRK,Barclays Center,Brooklyn Nets,1
+-80.83916667,35.225,CHO,Spectrum Center,Charlotte Hornets,1
+-87.67416667,41.88055556,CHI,United Center,Chicago Bulls,1
+-81.68805556,41.49638889,CLE,Rocket Mortgage FieldHouse,Cleveland Cavaliers,1
+-96.81027778,32.79055556,DAL,American Airlines Center,Dallas Mavericks,0
+-105.0075,39.74861111,DEN,Pepsi Center,Denver Nuggets,0
+-83.0549,42.3412,DET,Little Caesars Arena,Detroit Pistons,1
+-122.2030556,37.75027778,GSW,Oracle Arena,Golden State Warriors,0
+-95.36222222,29.75083333,HOU,Toyota Center,Houston Rockets,0
+-86.15555556,39.76388889,IND,Bankers Life Fieldhouse,Indiana Pacers,1
+-118.2672222,34.04305556,LAC,Staples Center,Los Angeles Clippers,0
+-118.2672222,34.04305556,LAL,Staples Center,Los Angeles Lakers,0
+-90.05055556,35.13833333,MEM,FedExForum,Memphis Grizzlies,0
+-80.18805556,25.78138889,MIA,American Airlines Arena,Miami Heat,1
+-87.9182,43.0451,MIL,Fiserv Forum,Milwaukee Bucks,1
+-93.27611111,44.97944444,MIN,Target Center,Minnesota Timberwolves,0
+-90.08194444,29.94888889,NOP,Smoothie King Center,New Orleans Pelicans,0
+-73.99361111,40.75055556,NYK,Madison Square Garden,New York Knicks,1
+-97.515,35.463333,OKC,Chesapeake Energy Arena,Oklahoma City Thunder,0
+-81.383611,28.539167,ORL,Amway Center,Orlando Magic,1
+-75.17194444,39.90111111,PHI,Wells Fargo Center,Philadelphia 76ers,1
+-112.0713889,33.44583333,PHX,Talking Stick Resort Arena,Phoenix Suns,0
+-122.6666667,45.53166667,POR,Moda Center,Portland Trail Blazers,0
+-121.5,38.58,SAC,Golden 1 Center,Sacramento Kings,0
+-98.4375,29.42694444,SAS,AT&T Center,San Antonio Spurs,0
+-79.37916667,43.64333333,TOR,Scotiabank Arena,Toronto Raptors,1
+-111.901111,40.768333,UTA,Vivint Smart Home Arena,Utah Jazz,0
+-77.02083333,38.89805556,WAS,Capital One Arena,Washington Wizards,1
