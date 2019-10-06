@@ -8,7 +8,7 @@ library(gridExtra)
 library(magick)
 
 rm(list = ls())
-setwd("C:/Users/ralamine/Desktop")
+setwd("~/Documents/00_MyWebsite/static/images")
 
 # load data
 arenas       <- read_csv("https://raw.githubusercontent.com/alamine53/nba_trademap_final/master/raw_NbaCities_adj.csv")
@@ -30,40 +30,45 @@ nba_map <- ggplot() +
     axis.title = element_blank(),
     axis.ticks = element_blank(),
     axis.line = element_blank(),
+    plot.background=element_rect(fill="#dcdcd9"),
+    panel.background=element_rect(fill="#dcdcd9"),
     panel.grid = element_blank(),
     panel.border = element_blank(),
     plot.caption = element_text(size = rel(5 / 6), hjust = 0.5),
     plot.title = element_text(size=22, family = "Arial", face = "bold")
   ) +
   labs(title = "NBA Player Movements, Summer 2019", subtitle = "Player", caption = "Creation: Ramzy Al-Amine | © courtsidecoder.home.blog") +
-  geom_polygon(data = map_data("usa"), aes(x = long, y = lat, group = group, size = 1), 
-               fill = "white", alpha = 0.05, colour = "#dcdcd9", show.legend = FALSE) +
+  geom_polygon(data = map_data("usa"), aes(x = long, y = lat, group = group, size = 3), 
+               size = 1, fill = "#dcdcd9", colour = "grey35", alpha = 1, show.legend = FALSE) +
   geom_point(data = arenas, aes(x = long, y = lat), 
              shape = 2, color = "grey90", fill = "white", size = 4) +
   geom_text(data = arenas, aes(x = long, y = lat, label = names), 
-            hjust = 0, nudge_x = -1, nudge_y = 1, family = "Arial", fontface = "bold", colour = "grey90") +
+            hjust = 0, nudge_x = -1, nudge_y = 1, size = 5, family = "Arial", fontface = "bold", colour = "grey90") +
   geom_text(data = transactions, aes(x = long, y = lat, label = Player), 
-            hjust = 0, nudge_x = -1, nudge_y = 1, family = "Arial", fontface = "bold") +
+            hjust = 0, nudge_x = -1, nudge_y = 1, size = 7, family = "Arial", fontface = "bold") +
   geom_path(data = transactions, aes(x = long, y = lat, group = Player),
-            size = 1.5, colour = "red", arrow = arrow(length = unit(0.5, "cm")))
+            size = 1.5, colour = "#1E90FF", arrow = arrow(length = unit(0.5, "cm")))
 nba_map
 
 # static bar chart
 nba_bar <- ggplot(data=transactions, aes(x=1, y=PPG_total, colour = Player), show.legend = FALSE) +
-  geom_bar(stat = 'identity', width = 0.001, show.legend = FALSE) +
-  geom_label(aes(label = round(PPG_total, digits = 1)), show.legend = FALSE) +
-  theme_void()
+  geom_bar(stat = 'identity', width = 0.001, fill = "#1E90FF", colour = "black", show.legend = FALSE) +
 
+  geom_label(aes(label = round(PPG_total, digits = 1)), colour = "black", size = 7, fontface = "bold", show.legend = FALSE) +
+  theme_void() +
+  theme(plot.background=element_rect(fill="#dcdcd9"),
+panel.background=element_rect(fill="#dcdcd9"))
+
+nba_bar
 # animate charts
 nba_map_anim <- animate(nba_map + transition_reveal(nframes), 
                         width = 800, height = 600,
-                        fps = 10, duration = 10)    
+                        fps = 10, duration = 20)    
 #    renderer = file_renderer("map_anim", overwrite = TRUE))
 
 nba_bar_anim <- animate(nba_bar + transition_time(nframes), 
-                        width = 75, height = 600,
-                        fps = 10, duration = 10)
-# renderer = file_renderer("bar_anim", overwrite = TRUE))
+                        width = 60, height = 600,
+                        fps = 10, duration = 20)
 
 a_mgif <- image_read(nba_map_anim)
 b_mgif <- image_read(nba_bar_anim)
@@ -74,3 +79,6 @@ for(i in 2:100){
 }
 
 composite
+save_animation(composite, "animation.gif")
+save_animation(composite2, "animation.gif")
+
